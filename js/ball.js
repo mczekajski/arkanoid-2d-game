@@ -12,8 +12,8 @@ export default class Ball {
         this.game = game;
 
         this.speed = {
-            x: 5,
-            y: -5,
+            x: 0,
+            y: 0,
         };
 
         this.position = {
@@ -27,8 +27,8 @@ export default class Ball {
     }
 
     update(deltaTime) {
-        this.position.x += this.speed.x;
-        this.position.y += this.speed.y;
+        this.position.x += this.speed.x / deltaTime;
+        this.position.y += this.speed.y / deltaTime;
 
         // wall on left or right
         if (this.position.x + this.size > this.gameWidth || this.position.x <= 0) {
@@ -51,14 +51,14 @@ export default class Ball {
         }
     }
 
-    reset() {
+    reset(ballSpeed) {
         this.position = {
             x: 10,
             y: 350
         };
         this.speed = {
-            x: 5,
-            y: -5
+            x: ballSpeed,
+            y: -ballSpeed
         };
     }
 }

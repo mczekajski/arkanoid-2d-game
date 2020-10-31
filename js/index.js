@@ -14,12 +14,14 @@ let game = new Game(GAME_WIDTH, GAME_HEIGHT);
 
 //images
 let imgBall = document.getElementById('img_ball');
+let imgBackground = document.getElementById('img_background');
 
 function gameLoop(timestamp) {
     let deltaTime = timestamp - lastTime;
     lastTime = timestamp;
 
-    ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+    //ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+    ctx.drawImage(imgBackground, 0, 0, GAME_WIDTH, GAME_HEIGHT);
 
     game.update(deltaTime);
     game.draw(ctx);

@@ -30,7 +30,7 @@ export default class Game {
         this.bricks = [];
         this.lives = 1;
 
-        this.levels = [level1, level2, level3];
+        this.levels = [level1, level2, level3, level4, level5];
         this.currentLevel = 0;
 
         new InputHandler(this.paddle, this);
@@ -41,7 +41,7 @@ export default class Game {
             this.gamestate !== GAMESTATE.NEWLEVEL) return;
 
         this.bricks = buildLevel(this, this.levels[this.currentLevel]);
-        this.ball.reset();
+        this.ball.reset(50 + 10 * this.currentLevel);
         this.gameObjects = [this.ball, this.paddle];
         this.gamestate = GAMESTATE.RUNNING;
     }
