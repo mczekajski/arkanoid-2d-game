@@ -6,12 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arkanoid 2D Game</title>
     <style>
-        #gameScreen {
-            border: 1px solid black;
+        * {
+            margin: 0;
             padding: 0;
-            margin: auto;
-            display: block;
-            width: 800px;
+            box-sizing: border-box;
+        }
+
+        body {
+            position: relative;
+            background-color: rgb(10, 30, 40);
+            height: 80vh;
+        }
+
+        canvas {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid royalblue;
         }
 
         img {

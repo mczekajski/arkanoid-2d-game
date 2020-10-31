@@ -13,7 +13,6 @@ let lastTime = 0;
 let game = new Game(GAME_WIDTH, GAME_HEIGHT);
 
 //images
-let imgBall = document.getElementById('img_ball');
 let imgBackground = document.getElementById('img_background');
 
 function gameLoop(timestamp) {
