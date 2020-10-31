@@ -35,25 +35,30 @@ export default class Ball {
             this.speed.x = -this.speed.x;
         }
 
-        // wall on top
+        // top of the game
         if (this.position.y <= 0) {
             this.speed.y = -this.speed.y;
         }
 
-        // wall on bottom
+        // bottom of the game
         if (this.position.y + this.size > this.gameHeight) {
             this.game.lives--;
         }
-
-        // check collision with paddle
-        let bottomOfBall = this.position.y + this.size;
-        let topOfPaddle = this.game.paddle.position.y;
-        let leftSideOfPaddle = this.game.paddle.position.x;
-        let rightSideOfPaddle = this.game.paddle.position.x + this.game.paddle.width;
 
         if (detectCollision(this, this.game.paddle)) {
             this.speed.y = -this.speed.y;
             this.position.y = this.game.paddle.position.y - this.size;
         }
+    }
+
+    reset() {
+        this.position = {
+            x: 10,
+            y: 350
+        };
+        this.speed = {
+            x: 5,
+            y: -5
+        };
     }
 }
